@@ -1,8 +1,8 @@
 # AI Agent CLI Tool
 
-A conversational CLI agent (Cursor/Windsurf-style) that runs in the terminal, reasons in a **START → THINK → TOOL → OBSERVE → OUTPUT** loop, and produces real files on disk. Given the instruction *"Clone the Scaler website"*, it generates a working `index.html`, `styles.css`, and `script.js` that visually resembles [scaler.com](https://www.scaler.com).
+A conversational CLI agent (Cursor/Windsurf-style) that runs in the terminal, reasons in a "START → THINK → TOOL → OBSERVE → OUTPUT" loop, and produces real files on disk. Given the instruction *"Clone the Scaler website"*, it generates a working `index.html`, `styles.css`, and `script.js` that visually resembles [scaler.com](https://www.scaler.com). Check the [Demo Video](https://youtu.be/r6nMpDXKROk) to see how it works.
 
-Built for **Assignment 02 — AI Agent CLI Tool**.
+Built for Assignment 02 — AI Agent CLI Tool.
 
 ## Features
 
@@ -62,17 +62,6 @@ Then open `scaler_clone/index.html` in a browser:
 open scaler_clone/index.html
 ```
 
-## Project Structure
-
-```
-.
-├── index.js          # the agent (chat loop + tool executor)
-├── package.json
-├── .env.example      # copy to .env and add GROQ_API_KEY
-├── .gitignore
-└── README.md
-```
-
 ## How the agent loop works
 
 Every turn, the model is constrained to reply with **one JSON object** of the form:
@@ -91,15 +80,3 @@ The runtime in [index.js](index.js):
 3. Repeats until the model emits an `OUTPUT` step.
 
 This is the same pattern Cursor and similar agents use — the LLM never directly touches the filesystem; it requests tools, the runtime executes them, and the result is fed back as context.
-
-## Why Groq?
-
-Groq's free tier is fast, generous, and does not require a credit card. Because Groq exposes an OpenAI-compatible endpoint, the code uses the standard `openai` SDK with a custom `baseURL` — switching to OpenAI / Gemini / OpenRouter is a one-line change.
-
-## Submission checklist
-
-- [x] Public GitHub repository
-- [x] CLI tool that accepts natural language input
-- [x] Multi-step agent loop with reasoning + tool calls
-- [x] Generates a working Scaler-style website (Header, Hero, Stats, Courses, Testimonials, Footer)
-- [ ] YouTube demo video (2–3 min) — record yourself running `npm start`, asking the agent to clone Scaler, and opening the result in a browser.
