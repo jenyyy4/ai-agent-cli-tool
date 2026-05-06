@@ -1,0 +1,15 @@
+{
+  "name": "ai-agent-cli-tool",
+  "version": "1.0.0",
+  "description": "A conversational CLI agent that can clone websites using HTML, CSS, and JS via an LLM tool-calling loop.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "openai": "^4.77.0"
+  }
+}
